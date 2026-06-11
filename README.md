@@ -1,49 +1,127 @@
-# Random Email and Password Generator 💻🔑
-A very simple python code that generates random email-password combinations using a list of predefined names and domains. You can specify the number of combinations you'd like to generate, and the script will create a unique email and password pair for each entry. It's perfect for testing purposes, `educational purposes`, account creation automation, or just for fun!
-# Format
-`Email:Pass`
+# ⚡ CredForge — Realistic Credential Generator
 
-# Features
-Random Email Generation
-*The script generates email addresses using randomly selected names and birth dates.
-Random Password Generation: Each email is paired with a randomly generated password containing a mix of letters and numbers (up to 12 characters).*
-Larger Name Database
-*A much larger and more diverse list of first names and last names is now included for more variety.
-File Output: The generated email-password combinations are saved in a text file (generated_emails.txt) for easy access.*
-Customizable
-*You can specify the number of email-password pairs you want to generate.*
-Easy to Use: Just run the script, input the desired number of combinations, and the file is generated for you.
-Customizable
-*Allows you to specify the number of email-password pairs you want to generate.*
+> *Combolist-grade synthetic credentials for red team operations*
 
-Easy to Use Just run the script and input the desired number of combinations!
-# Usage Instructions
-Clone the repository
+CredForge generates realistic-looking email:password combinations that match the patterns found in actual data breaches. Multi-country name databases, real-world password habits, and optional PII/credit card generation for simulation exercises.
 
-    git clone https://github.com/Adam-ZS/random-email-password-generator.git
+**Use cases:** Phishing simulations, red team credential harvesting demos, database population, tool testing, SOC detection validation.
 
-Navigate to the project folder
+---
 
-    cd random-email-password-generator
+## Features
 
-Install Python (if not already installed)
+| Feature | Details |
+|---------|---------|
+| **9 Countries** | US, UK, France, Germany, Russia, Middle East, Japan, Brazil, India |
+| **1,260+ Names** | Culturally accurate first + last names per region |
+| **17 Password Patterns** | Leetspeak, seasons, birth dates, special chars, common bases — mirrors real human password creation |
+| **Domains** | Gmail, Yahoo, Outlook, iCloud, ProtonMail, Yandex, Mail.ru, country-specific (T-Online, Orange.fr, Bol.com.br, etc.) |
+| **PII (optional)** | Phone, full address, ZIP code, SSN (US), security questions + answers |
+| **Credit Cards (optional)** | Luhn-valid format (Visa/MC/Amex/Discover) — **not real cards** |
+| **5 Output Formats** | email:pass → username:pass → email:pass:name → full PII dump → full PII + CC |
 
-If you don’t have Python installed, download and install it from python.org.
+---
 
+## Quick Start
 
-Run the script
+```bash
+git clone https://github.com/Adam-ZS/credforge
+cd credforge
+python3 credforge.py
+```
 
-    python email_password_generator.py
+Follow the prompts:
 
-You will be prompted to enter the number of email-password combinations you want to generate. Once completed, the combinations will be saved to generated_emails.txt in the same directory.
-Output
+```
+  Lines to generate [100]: 5000
 
-The script will save the generated email-password pairs in a text file (generated_emails.txt) for you to access later.
+  Output format:
+  1) email:password
+  2) email:password:fullname
+  3) Full PII + SSN ⚠
+  4) Full PII + SSN + CC ⚠⚠
 
+  Format [1]: 1
+  Country (blank=worldwide) [all]: br
+  Output file [combolist.txt]: brazil_creds.txt
 
-![image](https://github.com/user-attachments/assets/ad3ca912-80b1-4a5b-964c-32f8fc9bd44d)
-`
-![image](https://github.com/user-attachments/assets/3469a65f-9909-492e-b5c4-6d27e0dc9ce8)
+  Generating 5000 credentials...
+  ✔ Saved brazil_creds.txt (186,204 bytes)
+```
 
+---
 
+## Sample Output
 
+### Format 1 — email:password
+```
+marina.silva89@gmail.com:Summer1987!
+lucas.oliveira73@yahoo.com.br:P@ssw0rd1992
+joao24@bol.com.br:Admin%2001@
+```
+
+### Format 3 — Full PII + SSN
+```
+james.smith42@gmail.com:Winter1998!:James Smith:+1-305-472-8910:7423 Main St, Miami, FL 33101:492-81-7037
+```
+
+### Format 4 — Full PII + SSN + CC
+```
+maria.garcia22@yahoo.com:Passw0rd1974:Maria Garcia:+1-818-739-2041:1529 Oak Ave, Los Angeles, CA 90012:618-53-2091:4532418573947267:08/28:342
+```
+
+---
+
+## Output Formats Detail
+
+| Mode | Fields |
+|------|--------|
+| **1** | `email:password` |
+| **2** | `email:password:full_name` |
+| **3** | `email:password:full_name:phone:address:ssn` |
+| **4** | `email:password:full_name:phone:address:ssn:cc_number:cc_expiry:cc_cvv` |
+
+All formats may append `Q:security_question A:answer` (30% chance).
+
+---
+
+## Country Codes
+
+| Code | Country | Domains Included |
+|------|---------|-----------------|
+| `us` | United States | gmail, yahoo, hotmail, aol, icloud |
+| `uk` | United Kingdom | btinternet, virginmedia, sky, talktalk |
+| `fr` | France | orange, free, sfr, wanadoo, laposte |
+| `de` | Germany | t-online, web, gmx, freenet, 1und1 |
+| `ru` | Russia | mail, yandex, rambler, bk |
+| `jp` | Japan | yahoo.co.jp, docomo, ezweb, softbank |
+| `br` | Brazil | bol, uol, ig, globo, terra |
+| `in` | India | rediffmail, indiatimes, sify, yahoo.co.in |
+| `ar` | Middle East | outlook.sa, yahoo, hotmail |
+
+Leave blank for worldwide (weighted distribution).
+
+---
+
+## Requirements
+
+- Python 3.6+
+- Standard library only — zero dependencies
+
+---
+
+## Disclaimer
+
+All credentials generated by CredForge are **synthetic and randomized**. They do not correspond to real individuals or accounts. No data is sourced from actual breaches. This tool is intended for **authorized security testing, simulation exercises, and educational purposes only.**
+
+---
+
+## License
+
+MIT
+
+---
+
+## Author
+
+**Adam-ZS**
