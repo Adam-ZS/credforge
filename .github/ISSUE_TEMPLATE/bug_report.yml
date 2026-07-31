@@ -1,0 +1,52 @@
+name: Bug report
+description: Report a bug in CredForge
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Fill in the details below. CredForge is a single-file zero-dependency tool, so reproductions are usually quick.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `python3 credforge.py --version`
+      placeholder: e.g. 3.0.0
+    validations:
+      required: true
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+      description: Output of `python3 --version`
+      placeholder: e.g. 3.11.4
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command used
+      description: The exact command that triggered the bug
+      render: bash
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should have happened
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What happened instead — include output or a stack trace
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: OS, terminal, anything else that might matter
