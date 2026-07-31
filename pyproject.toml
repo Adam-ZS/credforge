@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "credforge"
+version = "3.0.0"
+description = "Realistic synthetic credential generator — email:password combos + optional PII for red team simulations. Zero dependencies."
+readme = "README.md"
+requires-python = ">=3.6"
+license = { text = "MIT" }
+authors = [{ name = "Adam ZS" }]
+keywords = ["credential-generator", "combolist", "red-team", "pentesting", "security-testing", "simulation"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Security",
+]
+
+[project.urls]
+Homepage = "https://github.com/Adam-ZS/credforge"
+Source = "https://github.com/Adam-ZS/credforge"
+
+[project.scripts]
+credforge = "credforge:main"
+
+[tool.setuptools]
+py-modules = ["credforge"]
